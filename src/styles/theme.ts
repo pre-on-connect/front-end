@@ -27,5 +27,10 @@ export const theme = {
         sm:'16px',
         md: '30px',
         lg:'60px'
+    },
+    screenSize:{ /* 1200px : 75rem 767px: 47.9rem 768px:48rem 1199px: 74.9rem  and (max-width: 74.9rem)*/
+        mobile:'(max-width: 47.9rem)',
+        tablet:'(min-width: 48rem)',
+        pc:'(min-width: 75rem)'
     }
 }
