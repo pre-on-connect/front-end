@@ -1,4 +1,4 @@
-import {LoginForm} from "@/components/LoginStyle";
+import {LoginForm} from "@/components/login/LoginStyle";
 import {Input} from "@/components/ui/Input";
 import {Button} from "@/components/ui/Button";
 import {FcGoogle} from "react-icons/fc";
