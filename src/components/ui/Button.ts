@@ -10,6 +10,7 @@ export const Button = styled.button<{$fill?:string}>`
   height: 3.813rem;
   border: none;
   border-radius: 1rem;
+  font-size: 1.1rem;
   background-color: ${({theme, $fill}) => theme.color[$fill || 'gray_light_1']};
   color: ${({$fill}) => !$fill ? 'black' : 'white'};
   text-align: center;
@@ -21,6 +22,7 @@ export const Button = styled.button<{$fill?:string}>`
   @media ${({theme}) => theme.screenSize.mobile}{
     width: 17rem;
     height:3rem;
+    font-size:.9rem;
   }
 
   @media ${({theme}) => theme.screenSize.tablet}{
