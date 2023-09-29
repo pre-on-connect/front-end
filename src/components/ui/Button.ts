@@ -3,8 +3,6 @@
 import styled from "styled-components";
 
 export const Button = styled.button<{$fill?:string}>`
-  width: 19.750rem;
-  height: 3.5rem;
   font-size: 1.2rem;
   border: none;
   border-radius: 1rem;
