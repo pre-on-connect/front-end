@@ -6,7 +6,8 @@ export const Button = styled.button<{$fill?:string}>`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  width: 20.875rem;
+  height: 3.813rem;
   border: none;
   border-radius: 1rem;
   background-color: ${({theme, $fill}) => theme.color[$fill || 'gray_light_1']};
@@ -15,5 +16,15 @@ export const Button = styled.button<{$fill?:string}>`
   cursor: pointer;
   & .icon {
     margin: 0 .5rem;
+  }
+  
+  @media ${({theme}) => theme.screenSize.mobile}{
+    width: 17rem;
+    height:3rem;
+  }
+
+  @media ${({theme}) => theme.screenSize.tablet}{
+    width: 19rem;
+    height:3.3rem;
   }
 `;
