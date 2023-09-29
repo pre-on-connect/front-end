@@ -3,6 +3,7 @@ import { GlobalStyles } from "@/app/global-styles";
 import { ReactNode } from "react";
 import Providers from "@/Providers";
 import { ChakraProvider } from "@chakra-ui/react";
+import { chakraTheme } from "@/styles/chakraTheme";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <ChakraProvider>
+        <ChakraProvider theme={chakraTheme}>
           <Providers>
             <GlobalStyles />
             {children}
