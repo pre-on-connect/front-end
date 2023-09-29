@@ -1,3 +1,5 @@
+import {css} from "styled-components";
+
 export const theme = {
     color: {
         primary: '#102eeb',
@@ -32,5 +34,16 @@ export const theme = {
         mobile:'(max-width: 47.9rem)',
         tablet:'(min-width: 48rem)',
         pc:'(min-width: 75rem)'
-    }
+    },
+    flex:css`
+      width:100%;
+      display:flex;
+      align-items: center;
+    `,
+    flexCol:css`
+      width:100%;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+    `
 }
