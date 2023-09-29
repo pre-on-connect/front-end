@@ -1,6 +1,8 @@
 import {LoginForm} from "@/components/LoginStyle";
 import {Input} from "@/components/ui/Input";
 import {Button} from "@/components/ui/Button";
+import {FcGoogle} from "react-icons/fc";
+import {RiKakaoTalkFill} from "react-icons/ri";
 
 
 function Login() {
@@ -18,8 +20,8 @@ function Login() {
             </ul>
             <div className='logins'>
                 <Button $fill='primary'>로그인</Button>
-                <Button >Google 계정으로 로그인</Button>
-                <Button >카카오 계정으로 로그인</Button>
+                <Button><FcGoogle className='icon'/> Google 계정으로 로그인</Button>
+                <Button><RiKakaoTalkFill className='icon'/>카카오 계정으로 로그인</Button>
             </div>
         </LoginForm>
     );
