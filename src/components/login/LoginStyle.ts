@@ -25,12 +25,6 @@ export const LoginForm = styled.div`
   & > .inputs {
     margin-bottom:1.2rem;
   }
-  
-  & > .inputs > * {
-    width: 19.750rem;
-    height: 3.5rem;
-  
-  }
  
   & > .inputs > :not(:last-child) {
     margin-bottom: 1.2rem;
@@ -38,10 +32,6 @@ export const LoginForm = styled.div`
 
   & > .logins {
     margin-top:2.4rem;
-    & > * {
-      width: 19.750rem;
-      height: 3.5rem;
-    }
     & > :not(:last-child){
       margin-bottom:1.2rem;
     }
@@ -56,35 +46,13 @@ export const LoginForm = styled.div`
 
     & li {
       list-style: none;
-      color: ${({theme}) => theme.color.gray_dark_1};
-
-      &:not(:nth-of-type(2)) {
-        cursor: pointer;
-        color: ${({theme}) => theme.color.gray_dark_4};
-
-        &:hover {
-          color: ${({theme}) => theme.color.primary};
-          font-weight: 600;
-        }
+      &:nth-of-type(2){
+        color: ${({theme}) => theme.color.gray_dark_1};
       }
-
     }
   }
 
   @media ${({theme}) => theme.screenSize.mobile} {
     border:none;
-    & > .inputs > * {
-      width: 17rem;
-      height: 2.5rem;
-    }
-
-    & > .logins > * {
-      width: 17rem;
-      height: 2.8rem;
-    }
   }
-
- 
-
- 
 `;
