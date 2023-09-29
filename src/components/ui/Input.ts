@@ -15,4 +15,14 @@ export const Input = styled.input`
   & ::placeholder {
     color: ${({theme}) => theme.color.gray_dark_1};
   }
+
+  @media ${({theme}) => theme.screenSize.mobile} {
+    width: 17rem;
+    height: 2.8rem;
+  }
+
+  @media ${({theme}) => theme.screenSize.tablet}{
+    width: 19rem;
+    height:3rem;
+  }
 `;
