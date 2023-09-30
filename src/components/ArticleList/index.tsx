@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box } from "@chakra-ui/react";
-import { ArticleCard } from "../ui";
+import { ArticleCard, CustomModal } from "../ui";
+import ArticleDetail from "../ArticleDetail";
 
 const ArticleList = () => {
   // 나중에 실제 게시글 리스트 props로 넘겨주기
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <Box
       width="100%"
@@ -18,9 +25,12 @@ const ArticleList = () => {
       }}
       pb={{ base: "10px", sm: "50px" }}
     >
-      <ArticleCard />
-      <ArticleCard />
-      <ArticleCard />
+      <CustomModal isOpen={isModalOpen} setOpen={setIsModalOpen}>
+        <ArticleDetail />
+      </CustomModal>
+      <ArticleCard onClick={() => handleModalOpen()} />
+      <ArticleCard onClick={() => handleModalOpen()} />
+      <ArticleCard onClick={() => handleModalOpen()} />
     </Box>
   );
 };

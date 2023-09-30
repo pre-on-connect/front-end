@@ -6,7 +6,11 @@ import { UserProfileItem, ImageCarousel, Dropdown } from "..";
 
 const MenuItems = ["수정하기", "삭제하기"];
 
-export const ArticleCard = () => {
+interface ArticleCardProps {
+  onClick?: () => void;
+}
+
+export const ArticleCard = ({ onClick }: ArticleCardProps) => {
   // 임시
   const isWriter = true;
   const imageList = ["https://picsum.photos/200/300", "https://picsum.photos/200/400", "https://picsum.photos/200/500"];
@@ -25,7 +29,7 @@ export const ArticleCard = () => {
         <UserProfileItem nickName="닉네임입니다" isDate="2023.09.01" />
         {isWriter ? <Dropdown menuItems={MenuItems} /> : ""}
       </Flex>
-      <ImageCarousel imageList={imageList} />
+      <ImageCarousel imageList={imageList} onClick={onClick} />
       <Box p="15px 20px">
         <Flex alignItems="center" fontSize="14px" mb="8px">
           <Image
@@ -38,10 +42,12 @@ export const ArticleCard = () => {
           />
           50
         </Flex>
-        <Flex fontSize="14px" mb="10px">
+        <Flex fontSize="14px" pb="10px">
           #태그 #태그 #태그
         </Flex>
-        <Box mb="20px">내용이 들어갈곳입니다.</Box>
+        <Box pb="20px" onClick={onClick}>
+          내용이 들어갈곳입니다.
+        </Box>
         <Box
           color="gray_dark_1"
           fontSize="14px"
