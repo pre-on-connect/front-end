@@ -3,3 +3,4 @@ export { UserProfileItem } from "./UserProfileItem";
 export { ArticleCard } from "./ArticleCard";
 export { ImageCarousel } from "./ImageCarousel";
 export { Dropdown } from "./Dropdown";
+export { SearchBar } from "./SearchBar";

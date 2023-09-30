@@ -10,7 +10,7 @@ interface UserProfileItemProps {
 
 export const UserProfileItem = ({ profileImage, nickName, isRecommend, isDate }: UserProfileItemProps) => {
   return (
-    <Flex alignItems="center" m="10px 0" width="80%">
+    <Flex alignItems="center" m="10px 0">
       {profileImage ? (
         <Image src={profileImage} alt="" width="50px" height="50px" objectFit="contain" cursor="pointer" />
       ) : (
