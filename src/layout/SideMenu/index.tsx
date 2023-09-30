@@ -38,7 +38,7 @@ const SideMenuItem = [
   },
 ];
 
-const SideMenu = () => {
+export const SideMenu = () => {
   const pathname = usePathname();
 
   return (
@@ -65,5 +65,3 @@ const SideMenu = () => {
     </Box>
   );
 };
-
-export default SideMenu;

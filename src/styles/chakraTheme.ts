@@ -27,5 +27,6 @@ export const chakraTheme = extendTheme({
     blur_4: customTheme.shadow.blur_4 /* 모바일/태블릿 게시글 검색 버튼 */,
     blur_8: customTheme.shadow.blur_8,
     blur_10: customTheme.shadow.blur_10,
+    blur_20: customTheme.shadow.blur_20,
   },
 });

@@ -4,7 +4,18 @@ import { ArticleCard } from "../ui";
 
 const ArticleList = () => {
   return (
-    <Box>
+    <Box
+      height="100%"
+      overflowY="auto"
+      sx={{
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
+        "-ms-overflow-style": "none",
+        "scrollbar-width": "none",
+      }}
+      pb={{ base: "10px", sm: "50px" }}
+    >
       <ArticleCard />
       <ArticleCard />
       <ArticleCard />

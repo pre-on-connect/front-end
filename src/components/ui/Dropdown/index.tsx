@@ -1,29 +1,20 @@
 "use client";
 
-import React from "react";
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-  Button,
-} from "@chakra-ui/react";
+import React, { ReactElement } from "react";
+import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 interface DropdownProps {
   menuItems: string[];
+  icon?: ReactElement;
 }
 
-export const Dropdown = ({ menuItems }: DropdownProps) => {
+export const Dropdown = ({ menuItems, icon }: DropdownProps) => {
   return (
     <Menu>
       <MenuButton
         as={Button}
-        rightIcon={<HamburgerIcon />}
+        rightIcon={icon ? icon : <HamburgerIcon />}
         background="none"
         p="0"
         _hover={{ backgroundColor: "none", opacity: "0.6" }}

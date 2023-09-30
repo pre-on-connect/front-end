@@ -1,10 +1,12 @@
+"use client";
+
 import Home from "@/components/home";
-import DesktopLayout from "@/layout/DesktopLayout";
+import { Layout } from "@/layout";
 
 export default function HomePage() {
   return (
-    <DesktopLayout>
+    <Layout>
       <Home />
-    </DesktopLayout>
+    </Layout>
   );
 }

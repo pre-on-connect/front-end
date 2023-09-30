@@ -13,7 +13,7 @@ export const ArticleCard = () => {
 
   return (
     <Box
-      width="400px"
+      width={{ base: "300px", sm: "400px" }}
       height="600px"
       borderRadius="16px"
       boxShadow="blur_10"

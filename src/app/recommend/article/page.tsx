@@ -1,12 +1,12 @@
 import React from "react";
 import RecommendArticle from "@/components/recommendArticle";
-import DesktopLayout from "@/layout/DesktopLayout";
+import { Layout } from "@/layout";
 
 const RecommendArticlePage = () => {
   return (
-    <DesktopLayout>
+    <Layout>
       <RecommendArticle />
-    </DesktopLayout>
+    </Layout>
   );
 };
 

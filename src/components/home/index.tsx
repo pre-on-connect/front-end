@@ -6,17 +6,7 @@ import ArticleList from "../ArticleList";
 
 const HomePage = () => {
   return (
-    <Box
-      height="100vh"
-      overflowY="auto"
-      sx={{
-        "&::-webkit-scrollbar": {
-          display: "none",
-        },
-        "-ms-overflow-style": "none",
-        "scrollbar-width": "none",
-      }}
-    >
+    <Box height="100%">
       <ArticleList />
     </Box>
   );

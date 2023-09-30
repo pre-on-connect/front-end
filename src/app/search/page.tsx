@@ -1,14 +1,14 @@
 import React from "react";
 import SearchArticle from "@/components/searchArticle";
 import SearchUser from "@/components/searchUser";
-import DesktopLayout from "@/layout/DesktopLayout";
+import { Layout } from "@/layout";
 
 const SearchPage = () => {
   return (
-    <DesktopLayout>
+    <Layout>
       <SearchArticle />
       <SearchUser />
-    </DesktopLayout>
+    </Layout>
   );
 };
 

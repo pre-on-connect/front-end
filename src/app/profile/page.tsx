@@ -1,8 +1,8 @@
 import React from "react";
-import DesktopLayout from "@/layout/DesktopLayout";
+import { Layout } from "@/layout";
 
 const ProfilePage = () => {
-  return <DesktopLayout>ProfilePage</DesktopLayout>;
+  return <Layout>ProfilePage</Layout>;
 };
 
 export default ProfilePage;
