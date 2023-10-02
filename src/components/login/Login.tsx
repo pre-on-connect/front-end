@@ -12,7 +12,7 @@ function Login() {
     return (
 
         <LoginForm>
-                <Box color="primary" fontSize="32px" fontWeight="semibold" mb="100px">
+                <Box color="primary" fontSize="32px" fontWeight="semibold" mb="60px">
                     PreOn Connect
                 </Box>
                 <div className='inputs'>
