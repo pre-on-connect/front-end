@@ -40,6 +40,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     box-sizing: border-box;
     font-family: "InstagramSans", sans-serif;
+    color: ${({theme}) => theme.color.gray_dark_4};
   }
 
 `;

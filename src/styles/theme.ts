@@ -1,3 +1,5 @@
+import {css} from "styled-components";
+
 export const theme = {
     color: {
         primary: '#102eeb',
@@ -13,6 +15,7 @@ export const theme = {
         gray_dark_1: '#777',
         gray_dark_2: '#605F5F',
         gray_dark_3: '#555',
+        gray_dark_4: '#212121',
         red: '#ED4956',
         blue: '#0095F6',
         backdrop: '#00000080'
@@ -26,5 +29,21 @@ export const theme = {
         sm:'16px',
         md: '30px',
         lg:'60px'
-    }
+    },
+    screenSize:{ /* 1200px : 75rem 767px: 47.9rem 768px:48rem 1199px: 74.9rem  and (max-width: 74.9rem)*/
+        mobile:'(max-width: 47.9rem)',
+        tablet:'(min-width: 48rem)',
+        pc:'(min-width: 75rem)'
+    },
+    flex:css`
+      width:100%;
+      display:flex;
+      align-items: center;
+    `,
+    flexCol:css`
+      width:100%;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+    `
 }
