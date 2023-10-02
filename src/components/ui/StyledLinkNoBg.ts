@@ -1,9 +1,9 @@
 'use client';
 
 import styled from "styled-components";
-import {Button} from "@/components/ui/Button";
+import {StyledLink} from "@/components/ui/StyledLink";
 
-export const NavButton = styled(Button)`
+export const StyledLinkNoBg = styled(StyledLink)`
   width: fit-content;
   height:fit-content;
   background-color: transparent;

@@ -1,8 +1,9 @@
 'use client';
 
 import styled from "styled-components";
+import Link from "next/link";
 
-export const Button = styled.button<{$fill?:string}>`
+export const StyledLink = styled(Link)<{$fill?:string}>`
   display: flex;
   align-items: center;
   justify-content: center;

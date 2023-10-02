@@ -3,8 +3,8 @@
 import React from 'react';
 import Modal from "@/components/ui/Modal";
 import styled from "styled-components";
-import {Button} from "@/components/ui/Button";
-import {NavButton} from "@/components/ui/NavButton";
+import {StyledLink} from "@/components/ui/StyledLink";
+import {StyledLinkNoBg} from "@/components/ui/StyledLinkNoBg";
 import {Link} from "@chakra-ui/next-js";
 import {FcGoogle} from "@react-icons/all-files/fc/FcGoogle";
 import {RiKakaoTalkFill} from "@react-icons/all-files/ri/RiKakaoTalkFill";
@@ -34,18 +34,18 @@ function SignUpOrFindPassword() {
             <ul className='signUpFindPw'>
                 <li>
                     <Modal.Open opens='signup-option'>
-                        <NavButton>회원 가입</NavButton>
+                        <StyledLinkNoBg href='#'>회원 가입</StyledLinkNoBg>
                     </Modal.Open>
                     <Modal.Window name='signup-option'>
                         <StyledSignUpOption>
-                            <Button><FcGoogle className='icon'/> Google 계정으로 가입</Button>
-                            <Button><RiKakaoTalkFill className='icon'/>카카오 계정으로 가입</Button>
-                            <Link href='/signUp' color='gray_dark_4' bgColor='gray_light_1' >이메일로 가입</Link>
+                            <StyledLink href='#'><FcGoogle className='icon'/> Google 계정으로 가입</StyledLink>
+                            <StyledLink href='#' ><RiKakaoTalkFill className='icon'/>카카오 계정으로 가입</StyledLink>
+                            <StyledLink href='/signUp' >이메일로 가입</StyledLink>
                         </StyledSignUpOption>
                     </Modal.Window>
                 </li>
                 <li>&#124;</li>
-                <li><NavButton>비밀번호 찾기</NavButton></li>
+                <li><StyledLinkNoBg href='/findPw'>비밀번호 찾기</StyledLinkNoBg></li>
             </ul>
         </Modal>
 

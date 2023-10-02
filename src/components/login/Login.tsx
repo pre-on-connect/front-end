@@ -1,11 +1,11 @@
 import {LoginForm} from "@/components/login/LoginStyle";
 import {Input} from "@/components/ui/Input";
-import {Button} from "@/components/ui/Button";
-import {FcGoogle} from "react-icons/fc";
-import {RiKakaoTalkFill} from "react-icons/ri";
+import {StyledLink} from "@/components/ui/StyledLink";
 import SignUpOrFindPassword from "@/components/login/SignUpOrFindPassword";
 import {Box} from "@chakra-ui/react";
 import React from "react";
+import {FcGoogle} from "@react-icons/all-files/fc/FcGoogle";
+import {RiKakaoTalkFill} from "@react-icons/all-files/ri/RiKakaoTalkFill";
 
 
 function Login() {
@@ -21,9 +21,9 @@ function Login() {
                 </div>
                 <SignUpOrFindPassword/>
                 <div className='logins'>
-                    <Button $fill='primary'>로그인</Button>
-                    <Button><FcGoogle className='icon'/> Google 계정으로 로그인</Button>
-                    <Button><RiKakaoTalkFill className='icon'/>카카오 계정으로 로그인</Button>
+                    <StyledLink $fill='primary' href='#'>로그인</StyledLink>
+                    <StyledLink  href='#'><FcGoogle className='icon'/> Google 계정으로 로그인</StyledLink>
+                    <StyledLink  href='#'><RiKakaoTalkFill className='icon'/>카카오 계정으로 로그인</StyledLink>
                 </div>
         </LoginForm>
 

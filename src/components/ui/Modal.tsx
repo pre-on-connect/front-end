@@ -1,7 +1,6 @@
 'use client';
 
 import styled from "styled-components";
-import {HiXMark} from "react-icons/hi2";
 import {createPortal} from "react-dom";
 import {
     cloneElement,
@@ -15,6 +14,7 @@ import {
     useState
 } from "react";
 import {ReactNodeChildren} from "@/utils/types";
+import {AiOutlineClose} from "@react-icons/all-files/ai/AiOutlineClose";
 
 export const StyledModal = styled.div`
   position: fixed;
@@ -140,7 +140,7 @@ function Window({children, name}:WindowProps) {
     return createPortal(
         <Overlay>
             <StyledModal ref={ref}>
-                <Button onClick={close}><HiXMark/></Button>
+                <Button onClick={close}><AiOutlineClose/></Button>
                 <div>
                     {cloneElement(children, {onCloseModal: close})}
                 </div>
