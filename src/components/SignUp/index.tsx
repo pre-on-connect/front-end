@@ -1,19 +1,11 @@
 'use client';
 import React, {useState} from 'react';
-import {
-    Avatar, Box,
-    Button,
-    Flex,
-    FormControl,
-    FormErrorMessage,
-    FormHelperText,
-    FormLabel,
-    Image,
-    Input
-} from "@chakra-ui/react";
+import {Avatar, Box, Button, Flex, Image} from "@chakra-ui/react";
 import CustomPageHeader from "@/components/ui/CustomPageHeader";
 import {Form, Formik} from "formik";
 import * as Yup from 'yup';
+import UserFormInput from "@/components/ui/SignUpFormInput";
+import {useMediaQuery} from "@mantine/hooks";
 
 const SignupSchema = Yup.object().shape({
     userId: Yup.string()
@@ -32,23 +24,55 @@ const SignupSchema = Yup.object().shape({
 
 function SignUp() {
     const [profileImage, setProfileImage] = useState(null);
+    const isDesktop = useMediaQuery("(min-width: 1200px)");
 
     return (
-        <Flex flexDirection='column'  width='80%' height="100vh" m='0 auto' p='2rem 3rem' boxShadow='0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-'>
+        <Flex
+            flexDirection='column'
+            width={isDesktop ? '80%' : '100%'}
+            height="100vh"
+            m='0 auto'
+            p={['.5rem', '2rem 3rem', '2rem 3rem']}
+            boxShadow='0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);'
+        >
             <CustomPageHeader title='회원 가입'/>
-            <Flex align='center' height="100%" justifyContent='space-around' px='20rem'>
-                <Flex height='80%' flexDirection='column' align='center'>
+            <Flex
+                flexDirection={['column', 'column', 'row']}
+                align='center'
+                height="100%"
+                justifyContent='space-around'
+                px={['0', '2rem', '2rem', '20rem']}
+            >
+                <Flex height={['auto', '80%', '80%']} flexDirection='column' align='center'>
                     {profileImage ? (
-                        <Image src={profileImage} alt="" width="50px" height="50px" objectFit="contain"
-                               cursor="pointer"/>
+                        <Image
+                            src={profileImage}
+                            alt=""
+                            width={['8rem', '12rem']}
+                            height={['8rem', '12rem']}
+                            objectFit="contain"
+                            cursor="pointer"
+                        />
                     ) : (
-                        <Avatar borderRadius="full" width="12rem" height="12rem" cursor="pointer"></Avatar>
+                        <Avatar
+                            borderRadius="full"
+                            width={['6rem', '8rem', '12rem']}
+                            height={['6rem', '8rem', '12rem']}
+                            cursor="pointer"/>
                     )}
-                    <Button size='lg' my='2rem' borderRadius='lg' bgColor='tertiary' color='white' fontSize='1.2rem' _hover={{bgColor:'tertiary'}}>사진 업로드</Button>
-
+                    <Button
+                        size={['sm', 'lg', 'lg']}
+                        my={['1rem', '2rem', '2rem']}
+                        borderRadius={['md', 'lg', 'lg']}
+                        bgColor='tertiary'
+                        color='white'
+                        fontSize={['.9rem', '1.2rem', '1.2rem']}
+                        _hover={{bgColor: 'tertiary'}}
+                    >
+                        사진 업로드
+                    </Button>
                 </Flex>
-                <Box alignSelf='self-start'>
+                <Box alignSelf='self-start' m={['0 auto', '0 auto', '0 auto', '0']}>
                     <Formik
                         initialValues={{
                             userId: '',
@@ -62,48 +86,42 @@ function SignUp() {
                         {
                             ({errors, touched}) => (
                                 <Form>
-                                    <FormControl isInvalid={errors.userId && touched.userId} color='gray_dark_4'
-                                                 mb='2.8rem'>
-                                        <Flex alignItems='baseline' pl='.3rem'>
-                                            <FormLabel htmlFor='userId' fontSize='1.15rem'>사용자 ID</FormLabel>
-                                            <FormHelperText>사용자 ID를 입력하세요</FormHelperText>
-                                        </Flex>
-                                        <Input id='userId' type='text'/>
-                                        {/*{errors.userId && <FormErrorMessage>{errors.userId}</FormErrorMessage>}*/}
-                                    </FormControl>
-                                    <FormControl isInvalid={errors.email && touched.email} color='gray_dark_4'
-                                                 mb='2.8rem'>
-                                        <Flex alignItems='baseline' pl='.3rem'>
-                                            <FormLabel htmlFor='email' fontSize='1.15rem'>이메일</FormLabel>
-                                            <FormHelperText>이메일을 입력하세요</FormHelperText>
-                                        </Flex>
-                                        <Input id='email' type='text'/>
-                                        {/*{errors.email && <FormErrorMessage>{errors.email}</FormErrorMessage>}*/}
-                                    </FormControl>
-                                    <FormControl isInvalid={errors.password && touched.password} color='gray_dark_4'
-                                                 mb='2.8rem'>
-                                        <Flex alignItems='baseline' pl='.3rem'>
-                                            <FormLabel htmlFor='password' fontSize='1.15rem'>비밀번호</FormLabel>
-                                            <FormHelperText>비밀번호를 입력하세요</FormHelperText>
-                                        </Flex>
-                                        <Input id='password' type='text'/>
-                                        {/*{errors.password && <FormErrorMessage>{errors.password}</FormErrorMessage>}*/}
-                                    </FormControl>
-                                    <FormControl isInvalid={errors.passwordConfirm && touched.passwordConfirm}
-                                                 color='gray_dark_4' >
-                                        <Flex alignItems='baseline' pl='.3rem'>
-                                            <FormLabel htmlFor='passwordConfirm' fontSize='1.15rem'>비밀번호 확인</FormLabel>
-                                            <FormHelperText>비밀번호를 재입력 하세요</FormHelperText>
-                                        </Flex>
-                                        <Input id='passwordConfirm' type='text'/>
-                                        {/*{errors.passwordConfirm &&*/}
-                                        {/*    <FormErrorMessage>{errors.passwordConfirm}</FormErrorMessage>}*/}
-                                    </FormControl>
+                                    <UserFormInput
+                                        type='text'
+                                        name='userId'
+                                        label='사용자 ID'
+                                        touched={touched.userId}
+                                        error={errors.userId}
+                                        helperText='~자리 아이디 입력'
+                                    />
+                                    <UserFormInput
+                                        type='text'
+                                        name='email'
+                                        label='이메일'
+                                        touched={touched.email}
+                                        error={errors.email}
+                                        helperText='이메일 입력'
+                                    />
+                                    <UserFormInput
+                                        type='password'
+                                        name='password'
+                                        label='비밀번호'
+                                        touched={touched.password}
+                                        error={errors.password}
+                                        helperText='~자리 비밀번호 입력'
+                                    />
+                                    <UserFormInput
+                                        type='password'
+                                        name='passwordConfirm'
+                                        label='비밀번호 확인'
+                                        touched={touched.passwordConfirm}
+                                        error={errors.passwordConfirm}
+                                        helperText='비밀번호를 재입력 해주세요'
+                                    />
                                 </Form>
                             )
                         }
                     </Formik>
-
                 </Box>
             </Flex>
             {/*<Box flexBasis='8rem'  m='0 auto' >*/}
