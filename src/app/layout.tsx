@@ -17,9 +17,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
         <Client>
+          <GlobalStyles/>
           <ChakraProvider theme={chakraTheme}>
             <Providers>
-              <GlobalStyles />
               {children}
             </Providers>
           </ChakraProvider>
