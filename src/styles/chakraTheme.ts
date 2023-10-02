@@ -32,5 +32,10 @@ export const chakraTheme = extendTheme({
   fonts: {
     heading: 'InstagramSans',
     body:'InstagramSans'
+  },
+  breakpoints:{
+    sm:'47.9rem',
+    md:'48rem',
+    lg:'75rem'
   }
 });
