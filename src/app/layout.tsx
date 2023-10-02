@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { GlobalStyles } from "@/app/global-styles";
 import { ReactNode } from "react";
 import Providers from "@/Providers";
 import { ChakraProvider } from "@chakra-ui/react";
 import { chakraTheme } from "@/styles/chakraTheme";
 import { RecoilRoot } from "recoil";
 import Client from "./client";
+import Fonts from "@/styles/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +17,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
         <Client>
-          <GlobalStyles/>
           <ChakraProvider theme={chakraTheme}>
+            <Fonts/>
             <Providers>
               {children}
             </Providers>

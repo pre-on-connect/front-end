@@ -29,4 +29,8 @@ export const chakraTheme = extendTheme({
     blur_10: customTheme.shadow.blur_10,
     blur_20: customTheme.shadow.blur_20,
   },
+  fonts: {
+    heading: 'InstagramSans',
+    body:'InstagramSans'
+  }
 });
