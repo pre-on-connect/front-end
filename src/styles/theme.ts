@@ -1,3 +1,5 @@
+import {css} from "styled-components";
+
 export const theme = {
     color: {
         primary: '#102eeb',
