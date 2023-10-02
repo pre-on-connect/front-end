@@ -1,5 +1,3 @@
-import {css} from "styled-components";
-
 export const theme = {
     color: {
         primary: '#102eeb',
@@ -23,7 +21,8 @@ export const theme = {
     shadow: {
         blur_4: 'box-shadow: 0px 4px 4px 0px #00000040', /* 모바일/태블릿 게시글 검색 버튼 */
         blur_8: '0px 4px 8px 0px #00000040',
-        blur_10: '0px 4px 10px 0px #00000040'
+        blur_10: '0px 4px 10px 0px #00000040',
+        blur_20: "0px 4px 20px 0px #00000040"
     },
     radius:{
         sm:'16px',
