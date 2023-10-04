@@ -1,9 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Box } from "@chakra-ui/react";
-import { MenuItem } from "@/components/ui";
+import { MenuItem, CustomModal } from "@/components/ui";
+import ArticleEditorModal from "@/components/ArticleEditorModal";
+import { useResetRecoilState } from "recoil";
+import { articleImagesAtom, articleModalTypeAtom } from "@/store";
 
 const SideMenuItem = [
   {
@@ -41,8 +44,29 @@ const SideMenuItem = [
 export const SideMenu = () => {
   const pathname = usePathname();
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const resetArticleImages = useResetRecoilState(articleImagesAtom);
+  const resetArticleModalType = useResetRecoilState(articleModalTypeAtom);
+
+  useEffect(() => {
+    return () => {
+      if (!isModalOpen) {
+        resetArticleImages();
+        resetArticleModalType();
+      }
+    };
+  }, [isModalOpen]);
+
   return (
     <Box width="100%" height="100vh" p="30px" borderRight="1px solid #CDCCCC">
+      <CustomModal isOpen={isModalOpen} setOpen={setIsModalOpen}>
+        <ArticleEditorModal />
+      </CustomModal>
       <Box color="primary" fontSize="32px" fontWeight="semibold" mb="100px">
         PreOn Connect
       </Box>
@@ -58,7 +82,11 @@ export const SideMenu = () => {
             fontWeight={pathname === menu.url ? "semibold" : ""}
             backgroundColor={pathname === menu.url ? "primary" : ""}
           >
-            <MenuItem title={menu.name} icon={menu.icon} url={menu.url} />
+            {menu.name === "만들기" ? (
+              <MenuItem title={menu.name} icon={menu.icon} url={menu.url} onClick={() => handleModalOpen()} />
+            ) : (
+              <MenuItem title={menu.name} icon={menu.icon} url={menu.url} />
+            )}
           </Box>
         ))}
       </Box>

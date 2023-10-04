@@ -21,7 +21,7 @@ export const CustomModal = ({ isOpen, setOpen, children }: CustomModalProps) => 
       <ModalOverlay />
       <ModalContent maxWidth={{ md: "700px", lg: "1000px" }} height={{ md: "600px" }}>
         {isMobile ? (
-          <ModalCloseButton />
+          <ModalCloseButton zIndex="10" />
         ) : (
           <Image
             src="/assets/modal_close.svg"

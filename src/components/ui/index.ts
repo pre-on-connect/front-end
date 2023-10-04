@@ -6,3 +6,4 @@ export { Dropdown } from "./Dropdown";
 export { SearchBar } from "./SearchBar";
 export { CustomModal } from "./CustomModal";
 export { Comment } from "./Comment";
+export { ImageUploadButton } from "./ImageUploadButton";
