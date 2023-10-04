@@ -1,6 +1,5 @@
 import React from 'react';
-import {Flex, FormControl, FormErrorMessage, FormHelperText, FormLabel, Input} from "@chakra-ui/react";
-import {Field, Form} from "formik";
+import {Flex, FormControl, FormHelperText, FormLabel, Input} from "@chakra-ui/react";
 
 interface UserFormInputProps {
     name: string;
@@ -14,12 +13,12 @@ interface UserFormInputProps {
 
 function SignUpFormInput({name, type, label, helperText, touched, error}: UserFormInputProps) {
     return (
-        <FormControl isInvalid={error && touched} color='gray_dark_4' mb={['1rem','2.8rem','2.8rem']}>
+        <FormControl isInvalid={error && touched} color='gray_dark_4' mb={['1rem', '2.8rem', '2.8rem']}>
             <Flex alignItems='baseline' pl='.3rem'>
-                <FormLabel htmlFor={name} fontSize={['1rem','1.15rem','1.15rem']}>
+                <FormLabel htmlFor={name} fontSize={['.95rem', '1.15rem', '1.15rem']}>
                     {label}
                 </FormLabel>
-                {helperText && <FormHelperText>{helperText}</FormHelperText>}
+                {helperText && <FormHelperText fontSize={['.8rem', '1rem', '1rem']}>{helperText}</FormHelperText>}
             </Flex>
             <Input id={name} type={type}/>
             {/*{errors.email && <FormErrorMessage>{errors.email}</FormErrorMessage>}*/}
