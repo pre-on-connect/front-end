@@ -1,4 +1,4 @@
 
-export type ReactNodeChildren = {
+export interface ReactNodeChildren {
     children: React.ReactNode
 }
