@@ -31,7 +31,7 @@ const ButtonMenuItem = [
     id: 5,
     name: "프로필",
     icon: "/assets/profile.svg",
-    url: "/profile",
+    url: "/user",
   },
 ];
 
