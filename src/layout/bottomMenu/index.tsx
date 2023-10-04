@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Flex, Image } from "@chakra-ui/react";
 import Link from "next/link";
+import { CustomModal } from "@/components/ui";
+import { useResetRecoilState } from "recoil";
+import { articleImagesAtom } from "@/store";
+import ArticleEditorModal from "@/components/ArticleEditorModal";
 
 const ButtonMenuItem = [
   {
@@ -36,25 +40,50 @@ const ButtonMenuItem = [
 ];
 
 export const BottomMenu = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const resetArticleImages = useResetRecoilState(articleImagesAtom);
+
+  useEffect(() => {
+    return () => {
+      if (!isModalOpen) {
+        resetArticleImages();
+      }
+    };
+  }, [isModalOpen]);
+
   return (
-    <Flex
-      width="100%"
-      justifyContent="space-between"
-      p={{ base: "20px", sm: "30px" }}
-      position="fixed"
-      bottom="0"
-      mt="50px"
-      borderTopLeftRadius="16px"
-      borderTopRightRadius="16px"
-      boxShadow="blur_20"
-      zIndex="20"
-      backgroundColor="#ffffff"
-    >
-      {ButtonMenuItem.map((menu) => (
-        <Link href={menu.url ? menu.url : "#"} key={menu.id}>
-          <Image src={menu.icon} alt="" width={{ base: "25px", sm: "auto" }} />
-        </Link>
-      ))}
-    </Flex>
+    <>
+      <CustomModal isOpen={isModalOpen} setOpen={setIsModalOpen}>
+        <ArticleEditorModal />
+      </CustomModal>
+      <Flex
+        width="100%"
+        justifyContent="space-between"
+        p={{ base: "20px", sm: "30px" }}
+        position="fixed"
+        bottom="0"
+        mt="50px"
+        borderTopLeftRadius="16px"
+        borderTopRightRadius="16px"
+        boxShadow="blur_20"
+        zIndex="20"
+        backgroundColor="#ffffff"
+      >
+        {ButtonMenuItem.map((menu) => (
+          <Link href={menu.url ? menu.url : "#"} key={menu.id}>
+            {menu.name === "만들기" ? (
+              <Image src={menu.icon} alt="" width={{ base: "25px", sm: "auto" }} onClick={() => handleModalOpen()} />
+            ) : (
+              <Image src={menu.icon} alt="" width={{ base: "25px", sm: "auto" }} />
+            )}
+          </Link>
+        ))}
+      </Flex>
+    </>
   );
 };
