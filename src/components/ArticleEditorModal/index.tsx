@@ -2,12 +2,13 @@ import React from "react";
 import { useMediaQuery } from "@mantine/hooks";
 import { Box, Flex, Image, Textarea, Button } from "@chakra-ui/react";
 import { ImageUploadButton } from "../ui";
-import { useRecoilState } from "recoil";
-import { articleImagesAtom } from "@/store";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { articleImagesAtom, articleModalTypeAtom } from "@/store";
 
 const ArticleEditorModal = () => {
   const isMobile = useMediaQuery("(max-width: 767px)");
   const [articleImages, setArticleImages] = useRecoilState(articleImagesAtom);
+  const articleModalType = useRecoilValue(articleModalTypeAtom);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -50,7 +51,7 @@ const ArticleEditorModal = () => {
     return (
       <Box height="100vh" p="20px" position="relative">
         <Box fontSize="24px" fontWeight="semibold" mb="15px" width="90%">
-          게시글 업로드
+          게시글 {articleModalType === "modify" ? "수정" : "업로드"}
         </Box>
         <Flex mb="12px" overflowX="scroll">
           <ImageUploadButton imgPreview={articleImages} onImageUpload={handleImageUpload} />
@@ -95,7 +96,7 @@ const ArticleEditorModal = () => {
         <Textarea placeholder="내용을 입력하세요" resize="none" height="200px" mb="10px" />
         <Box># 나중에 태그를 입력할 공간입니다.</Box>
         <Button position="absolute" bottom="20px" right="20px">
-          업로드하기
+          {articleModalType === "modify" ? "수정" : "업로드"}하기
         </Button>
       </Box>
     );
@@ -103,7 +104,7 @@ const ArticleEditorModal = () => {
     return (
       <Box height="100%" p="20px" position="relative">
         <Box fontSize="24px" fontWeight="semibold" mb="15px">
-          게시글 업로드
+          게시글 {articleModalType === "modify" ? "수정" : "업로드"}
         </Box>
         <Flex mb="12px" overflowX="scroll">
           <ImageUploadButton imgPreview={articleImages} onImageUpload={handleImageUpload} />
@@ -148,7 +149,7 @@ const ArticleEditorModal = () => {
         <Textarea placeholder="내용을 입력하세요" resize="none" height="200px" mb="10px" />
         <Box># 나중에 태그를 입력할 공간입니다.</Box>
         <Button position="absolute" bottom="20px" right="20px">
-          업로드하기
+          {articleModalType === "modify" ? "수정" : "업로드"}하기
         </Button>
       </Box>
     );

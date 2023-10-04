@@ -3,7 +3,7 @@ import { Flex, Image } from "@chakra-ui/react";
 import Link from "next/link";
 import { CustomModal } from "@/components/ui";
 import { useResetRecoilState } from "recoil";
-import { articleImagesAtom } from "@/store";
+import { articleImagesAtom, articleModalTypeAtom } from "@/store";
 import ArticleEditorModal from "@/components/ArticleEditorModal";
 
 const ButtonMenuItem = [
@@ -47,11 +47,13 @@ export const BottomMenu = () => {
   };
 
   const resetArticleImages = useResetRecoilState(articleImagesAtom);
+  const resetArticleModalType = useResetRecoilState(articleModalTypeAtom);
 
   useEffect(() => {
     return () => {
       if (!isModalOpen) {
         resetArticleImages();
+        resetArticleModalType();
       }
     };
   }, [isModalOpen]);

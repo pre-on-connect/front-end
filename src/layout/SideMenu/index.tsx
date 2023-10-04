@@ -6,7 +6,7 @@ import { Box } from "@chakra-ui/react";
 import { MenuItem, CustomModal } from "@/components/ui";
 import ArticleEditorModal from "@/components/ArticleEditorModal";
 import { useResetRecoilState } from "recoil";
-import { articleImagesAtom } from "@/store";
+import { articleImagesAtom, articleModalTypeAtom } from "@/store";
 
 const SideMenuItem = [
   {
@@ -51,11 +51,13 @@ export const SideMenu = () => {
   };
 
   const resetArticleImages = useResetRecoilState(articleImagesAtom);
+  const resetArticleModalType = useResetRecoilState(articleModalTypeAtom);
 
   useEffect(() => {
     return () => {
       if (!isModalOpen) {
         resetArticleImages();
+        resetArticleModalType();
       }
     };
   }, [isModalOpen]);
