@@ -8,28 +8,28 @@ function UserProfileInfo() {
     // todo - 사용자정보 조회 코드 추가
     const profileImage = null;
     return (
-            <Flex justifyContent='space-around' p='3rem 2rem'>
+            <Flex justifyContent='space-around' p={['2rem 0','3rem 2rem','3rem 2rem']}>
                 {profileImage ? (
                     <Image
                         src={profileImage}
                         alt="User profile image"
-                        width={['6rem', '8rem', '12rem']}
-                        height={['6rem', '8rem', '12rem']}
+                        width={['4.5rem', '8rem', '12rem']}
+                        height={['4.5rem', '8rem', '12rem']}
                         objectFit="contain"
                         cursor="pointer"
                     />
                 ) : (
                     <Avatar
                         borderRadius="full"
-                        width={['6rem', '8rem', '12rem']}
-                        height={['6rem', '8rem', '12rem']}
+                        width={['4.5rem', '8rem', '12rem']}
+                        height={['4.5rem', '8rem', '12rem']}
                         cursor="pointer"/>
                 )}
                 <VStack flexBasis='20rem' align='start' spacing={6} justify='center'>
-                    <Stack direction='row' spacing={4} align='center'>
-                        <Box fontSize='1.2rem' fontWeight='bold' >test_id</Box>
-                        <Button variant='primary-basic' size='sm' >프로필 편집</Button>
-                        <Button variant='trans-basic' size='md' color='tertiary' leftIcon={<FiLogOut />} fontWeight='bold' p='0'>
+                    <Stack direction='row' spacing={[2,4,4]} align='center'>
+                        <Box fontSize={['1rem','1.2rem','1.2rem']} fontWeight='bold' >test_id</Box>
+                        <Button variant='primary-basic' size={['xs','sm','sm']} >프로필 편집</Button>
+                        <Button variant='trans-basic' size={['sm','md','md']} color='tertiary' leftIcon={<FiLogOut />} fontWeight='bold' p='0'>
                             로그아웃
                         </Button>
                     </Stack>
