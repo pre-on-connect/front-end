@@ -29,12 +29,12 @@ function UserProfileInfo() {
                     <Stack direction='row' spacing={4} align='center'>
                         <Box fontSize='1.2rem' fontWeight='bold' >test_id</Box>
                         <Button variant='primary-basic' size='sm' >프로필 편집</Button>
-                        <Button variant='trans-basic' size='md' color='tertiary' leftIcon={<FiLogOut />} fontWeight='bold'>
+                        <Button variant='trans-basic' size='md' color='tertiary' leftIcon={<FiLogOut />} fontWeight='bold' p='0'>
                             로그아웃
                         </Button>
                     </Stack>
                     <Flex align='center' justifyContent='space-between'>
-                        <Box color='gray_dark_4' pr='1rem'>
+                        <Box color='gray_dark_4' fontWeight='600' pr='1rem'>
                             게시물<strong style={{marginLeft:'.25rem'}}>4</strong>
                         </Box>
                         <Button variant='trans-basic'>
