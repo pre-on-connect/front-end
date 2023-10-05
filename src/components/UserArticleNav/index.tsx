@@ -30,7 +30,7 @@ function UserArticleNav() {
             <TabList justifyContent='space-around' width='80%'>
                 {
                     userArticleNavMenu.map(v => {
-                        return <Tab key={v.id} color='gray_dark_1' _selected={{color:'gray_dark_4', fontWeight:600}}>{v.name}</Tab>;
+                        return <Tab key={v.id} color='gray_dark_1' _selected={{color:'gray_dark_4', fontWeight:500}}>{v.name}</Tab>;
                     })
                 }
             </TabList>
