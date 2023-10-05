@@ -1,6 +1,6 @@
 'use client';
-import React, {useRef} from 'react';
-import {Tab, TabList} from "@chakra-ui/react";
+import React, {useEffect, useRef} from 'react';
+import {Button, Divider, Tab, TabIndicator, TabList} from "@chakra-ui/react";
 import {Link} from "@chakra-ui/next-js";
 import {usePathname} from "next/navigation";
 
@@ -27,13 +27,25 @@ function UserArticleNav() {
 
 
     return (
-        <TabList>
-            {
-                userArticleNavMenu.map(v => {
-                    return <Tab key={v.id}><Link href={pathNameRef.current + v.url}>{v.name}</Link></Tab>;
-                })
-            }
-        </TabList>
+        <>
+            <TabList justifyContent='space-around' width='80%'>
+                {
+                    userArticleNavMenu.map(v => {
+                        return <Tab key={v.id} color='gray_dark_1' _selected={{color:'gray_dark_4', fontWeight:600}}>{v.name}</Tab>;
+                    })
+                }
+            </TabList>
+            <TabIndicator
+                position='relative'
+                zIndex='10'
+                mt="-1.5px"
+                height=".2rem"
+                bg="primary"
+                borderRadius="1px"
+            />
+            <Divider position='relative' zIndex='0' borderColor='gray_light_7'/>
+        </>
+
     );
 }
 
