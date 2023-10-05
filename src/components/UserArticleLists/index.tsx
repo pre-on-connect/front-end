@@ -1,8 +1,16 @@
 import React from 'react';
+import {Grid} from "@chakra-ui/react";
+import UserArticleCard from "@/components/ui/UserArticleCard";
 
-function UserArticleLists({text}:{text:string;}) {
+function UserArticleLists() {
     return (
-        <h3>{text}</h3>
+        <Grid templateColumns='repeat(3, 1fr)' gap={1}>
+            <UserArticleCard/>
+            <UserArticleCard/>
+            <UserArticleCard/>
+            <UserArticleCard/>
+        </Grid>
+
     );
 }
 

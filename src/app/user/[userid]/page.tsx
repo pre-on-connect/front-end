@@ -11,7 +11,7 @@ interface UserPageProps {
 function UserPage({params:{userid}}:UserPageProps) {
     console.log("userid: ",userid);
     return (
-        <Flex flexDirection='column'>
+        <Flex flexDirection='column' px='2rem'>
             <UserProfileInfo/>
             <UserArticle userid={userid}/>
         </Flex>
