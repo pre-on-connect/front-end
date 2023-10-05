@@ -8,22 +8,21 @@ const userArticleNavMenu = [
     {
         id: 1,
         name: '게시물',
-        url: '/'
+        type: 'posted'
     },
     {
         id: 2,
         name: '좋아요 한 글',
-        url: '/liked'
+        type: 'liked'
     },
     {
         id: 3,
         name: '댓글 단 글',
-        url: '/commented'
+        type: 'commented'
     }
 ]
 
 function UserArticleNav() {
-    const pathNameRef = useRef(usePathname());
 
 
     return (
