@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useState} from 'react';
-import {Center, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
+import {Center, TabPanel, TabPanels, Tabs, VStack} from "@chakra-ui/react";
 import UserArticleNav from "@/components/UserArticleNav";
 import UserArticleLists from "@/components/UserArticleLists";
 
@@ -15,17 +15,23 @@ function UserArticle({userid}: UserArticleProps) {
     // todo - tabIndex로 article 목록 가져와서 UserArticleLists에 넘기기
 
     return (
-        <Tabs align='center' variant='unstyled' defaultIndex={0} onChange={(index) => {
+        <Tabs
+            align='center'
+            variant='unstyled'
+            defaultIndex={0}
+            onChange={(index) => {
             setTabIndex(index)
         }}>
-            <UserArticleNav/>
-            <TabPanels>
-                <TabPanel mt='1rem'>
-                    <Center>
-                        <UserArticleLists/>
-                    </Center>
-                </TabPanel>
-            </TabPanels>
+            <VStack gap={2}>
+                <UserArticleNav/>
+                <TabPanels>
+                    <TabPanel p='0'>
+                        <Center>
+                            <UserArticleLists/>
+                        </Center>
+                    </TabPanel>
+                </TabPanels>
+            </VStack>
         </Tabs>
     );
 }
