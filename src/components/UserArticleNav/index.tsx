@@ -1,8 +1,7 @@
 'use client';
-import React, {useEffect, useRef} from 'react';
-import {Button, Divider, Tab, TabIndicator, TabList} from "@chakra-ui/react";
-import {Link} from "@chakra-ui/next-js";
-import {usePathname} from "next/navigation";
+import React from 'react';
+import {Divider, Tab, TabIndicator, TabList} from "@chakra-ui/react";
+import {useMediaQuery} from "@mantine/hooks";
 
 const userArticleNavMenu = [
     {
@@ -23,14 +22,14 @@ const userArticleNavMenu = [
 ]
 
 function UserArticleNav() {
-
+    const isMobile = useMediaQuery("(max-width: 767px)");
 
     return (
         <>
             <TabList justifyContent='space-around' width='50%'>
                 {
                     userArticleNavMenu.map(v => {
-                        return <Tab key={v.id} color='gray_dark_1' _selected={{color:'gray_dark_4', fontWeight:500}}>{v.name}</Tab>;
+                        return <Tab key={v.id} color='gray_dark_1' _selected={{color:'gray_dark_4', fontWeight:500}} fontSize={isMobile ? '.875rem' : '1rem'}>{v.name}</Tab>;
                     })
                 }
             </TabList>
