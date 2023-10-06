@@ -26,7 +26,7 @@ export const ArticleCard = ({ onClick }: ArticleCardProps) => {
       cursor="pointer"
     >
       <Flex p="10px 20px" alignItems="center" justifyContent="space-between">
-        <UserProfileItem nickName="닉네임입니다" isDate="2023.09.01" />
+        <UserProfileItem nickName="닉네임입니다" isDate="2023.09.01" showFollowStatus={false}/>
         {isWriter ? <Dropdown menuItems={MenuItems} /> : ""}
       </Flex>
       <ImageCarousel imageList={imageList} onClick={onClick} />
