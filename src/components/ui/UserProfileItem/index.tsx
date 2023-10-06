@@ -5,12 +5,12 @@ import FollowStatusButton from "@/components/ui/FollowStatusButton";
 interface UserProfileItemProps {
   profileImage?: string;
   nickName?: string;
-  isRecommend?: boolean;
+  showFollowStatus?: boolean; // 회원 추천 & 프로필 > 팔로잉/팔로우 목록 에서는 true(default값), 일반 게시글 등에서는 false.
   isDate?: string;
-  isFollowing?:boolean;
+  isFollowing?:boolean; // 해당 회원에 대한 팔로잉 여부
 }
 
-export const UserProfileItem = ({ profileImage, nickName, isRecommend, isDate, isFollowing }: UserProfileItemProps) => {
+export const UserProfileItem = ({ profileImage, nickName, showFollowStatus = true, isDate, isFollowing }: UserProfileItemProps) => {
   return (
     <Flex alignItems="center" m="10px 0">
       {profileImage ? (
@@ -28,7 +28,10 @@ export const UserProfileItem = ({ profileImage, nickName, isRecommend, isDate, i
           ""
         )}
       </Box>
-      <FollowStatusButton isFollowing={isRecommend ? false : isFollowing} nickname={nickName}/>
+        {
+            showFollowStatus && <FollowStatusButton isFollowing={isFollowing} nickname={nickName}/>
+        }
+
       {/*{isRecommend && (*/}
       {/*  <Box color="blue" ml="auto" cursor="pointer">*/}
       {/*    팔로우*/}
