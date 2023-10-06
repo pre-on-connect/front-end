@@ -11,12 +11,13 @@ function UserActivityInfo({isMobile}:UserActivityInfoProps) {
 
     return (
         <HStack
+            width='100%'
+            height={isMobile ? '4rem':'auto'}
             fontSize={isMobile ? '.875rem' : '1rem'}
             lineHeight='1.2rem'
             gap={isMobile ? 20 : 8}
             justify='center'
             borderY={isMobile ? '1px solid #d9d9d9' :'none'}
-            height={isMobile ? '4rem':'auto'}
         >
             <Stack direction={subDirection} color='gray_dark_4' fontWeight='inherit' gap={1} align='center'>
                 <span>게시물</span>

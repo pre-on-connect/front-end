@@ -68,7 +68,7 @@ function UserArticleNav() {
                         height=".2rem"
                         bg="primary"
                         borderRadius="1px"
-                    />`
+                    />
                 </Flex>
             </TabList>
         </>

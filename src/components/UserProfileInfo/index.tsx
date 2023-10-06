@@ -25,11 +25,13 @@ function UserProfileInfo() {
     }
 
     return (
-        <Flex flexDirection='column'>
+        <Flex flexDirection='column' align='center'>
             <Flex
-                align='center'
-                justifyContent='space-around'
                 height={isMobile ? '8rem':'16rem'}
+                justifyContent='space-around'
+                align='center'
+                width={['100%','100%','100%','80%']}
+
             >
                 {profileImage ? (
                     <Image
@@ -54,7 +56,7 @@ function UserProfileInfo() {
                     justify='center'
                 >
                     <Stack direction='row' spacing={isMobile ? 2 : 4} align='center'>
-                        <Flex align='center' justifyContent='center'>
+                        <Flex align='center' justify='space-between' width={isMobile ? '5rem':'9rem'}>
                             <Text as='b' height='1.2rem'>
                                 test_id
                             </Text>
