@@ -1,14 +1,16 @@
 import React from "react";
 import { Flex, Box, Image, Avatar } from "@chakra-ui/react";
+import FollowStatusButton from "@/components/ui/FollowStatusButton";
 
 interface UserProfileItemProps {
   profileImage?: string;
   nickName?: string;
   isRecommend?: boolean;
   isDate?: string;
+  isFollowing?:boolean;
 }
 
-export const UserProfileItem = ({ profileImage, nickName, isRecommend, isDate }: UserProfileItemProps) => {
+export const UserProfileItem = ({ profileImage, nickName, isRecommend, isDate, isFollowing }: UserProfileItemProps) => {
   return (
     <Flex alignItems="center" m="10px 0">
       {profileImage ? (
@@ -26,13 +28,12 @@ export const UserProfileItem = ({ profileImage, nickName, isRecommend, isDate }:
           ""
         )}
       </Box>
-      {isRecommend ? (
-        <Box color="blue" ml="auto" cursor="pointer">
-          팔로우
-        </Box>
-      ) : (
-        ""
-      )}
+        <FollowStatusButton isFollowing={!isRecommend || isFollowing} nickname={nickName}/>
+      {/*{isRecommend && (*/}
+      {/*  <Box color="blue" ml="auto" cursor="pointer">*/}
+      {/*    팔로우*/}
+      {/*  </Box>*/}
+      {/*)}*/}
     </Flex>
   );
 };
