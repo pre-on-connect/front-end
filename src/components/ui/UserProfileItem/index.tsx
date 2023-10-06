@@ -28,7 +28,7 @@ export const UserProfileItem = ({ profileImage, nickName, isRecommend, isDate, i
           ""
         )}
       </Box>
-        <FollowStatusButton isFollowing={!isRecommend || isFollowing} nickname={nickName}/>
+      <FollowStatusButton isFollowing={isRecommend ? false : isFollowing} nickname={nickName}/>
       {/*{isRecommend && (*/}
       {/*  <Box color="blue" ml="auto" cursor="pointer">*/}
       {/*    팔로우*/}
