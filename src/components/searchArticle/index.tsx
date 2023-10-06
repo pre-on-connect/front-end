@@ -6,6 +6,7 @@ import { useSetRecoilState } from "recoil";
 import { Box, Flex, Image } from "@chakra-ui/react";
 import { SearchBar, ArticleCard, CustomModal } from "../ui";
 import ArticleDetail from "../ArticleDetail";
+import {useModal} from "@/hooks/useModal";
 
 const SearchArticle = () => {
   const setSearchType = useSetRecoilState(searchTypeAtom);
@@ -14,11 +15,8 @@ const SearchArticle = () => {
     setSearchType(type);
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
+  const {isModalOpen, openModal, closeModal} = useModal();
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <Box
@@ -34,7 +32,7 @@ const SearchArticle = () => {
         "scrollbar-width": "none",
       }}
     >
-      <CustomModal isOpen={isModalOpen} setOpen={setIsModalOpen}>
+      <CustomModal isOpen={isModalOpen} handleModalClose={() => closeModal()}>
         <ArticleDetail />
       </CustomModal>
       <Flex
@@ -57,9 +55,9 @@ const SearchArticle = () => {
       </Flex>
       <SearchBar />
       <Box height="100%">
-        <ArticleCard onClick={() => handleModalOpen()} />
-        <ArticleCard onClick={() => handleModalOpen()} />
-        <ArticleCard onClick={() => handleModalOpen()} />
+        <ArticleCard onClick={() => openModal()} />
+        <ArticleCard onClick={() => openModal()} />
+        <ArticleCard onClick={() => openModal()} />
         <Box height="10px" backgroundColor="transparent" />
       </Box>
     </Box>
