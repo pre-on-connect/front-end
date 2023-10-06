@@ -1,5 +1,5 @@
 import React from 'react';
-import {Flex} from "@chakra-ui/react";
+import {Flex, VStack} from "@chakra-ui/react";
 import UserProfileInfo from "@/components/UserProfileInfo";
 import UserArticle from "@/components/UserArticle";
 
@@ -11,10 +11,10 @@ interface UserPageProps {
 function UserPage({params:{userid}}:UserPageProps) {
     console.log("userid: ",userid);
     return (
-        <Flex flexDirection='column' px={['0','2rem','2rem']}>
+        <VStack gap={[4,16,16]} px={['0','2rem','2rem']}>
             <UserProfileInfo/>
             <UserArticle userid={userid}/>
-        </Flex>
+        </VStack>
 
     );
 }
