@@ -55,7 +55,7 @@ function UserProfileInfo() {
                 >
                     <Stack direction='row' spacing={isMobile ? 2 : 4} align='center'>
                         <Flex align='center' justifyContent='center'>
-                            <Text as='b' fontSize={isMobile ? '1rem' : '1.2rem'} height='1.2rem'>
+                            <Text as='b' height='1.2rem'>
                                 test_id
                             </Text>
                             {
