@@ -1,52 +1,100 @@
 'use client';
-import React from 'react';
-import {Avatar, Box, Button, Flex, Image, Stack, VStack} from "@chakra-ui/react";
+import React, {MouseEventHandler, MouseEvent} from 'react';
+import {Avatar, Box, Button, Flex, Image, Stack, VStack, Text, HStack} from "@chakra-ui/react";
 import {FiLogOut} from "@react-icons/all-files/fi/FiLogOut";
+import {useMediaQuery} from "@mantine/hooks";
+import GeneralDropDown from "@/components/ui/GeneralDropdown";
+import {CustomMouseEvent} from "@/utils/types";
 
 function UserProfileInfo() {
+    const isMobile = useMediaQuery("(max-width: 767px)");
 
     // todo - 사용자정보 조회 코드 추가
     const profileImage = null;
+    const profileImageWH = ['5rem', '8rem', '12rem'];
+
+    function onClickMobileMenuItemHandler({target}: CustomMouseEvent<HTMLButtonElement>) {
+        if ((target as Node).textContent === '회원 탈퇴') {
+            console.log("회원 탈퇴");
+        }
+
+        if ((target as Node).textContent === '프로필 편집') {
+            console.log('프로필 편집');
+        }
+    }
+
     return (
-            <Flex justifyContent='space-around' p={['2rem 0','3rem 2rem','3rem 2rem']}>
-                {profileImage ? (
-                    <Image
-                        src={profileImage}
-                        alt="User profile image"
-                        width={['4.5rem', '8rem', '12rem']}
-                        height={['4.5rem', '8rem', '12rem']}
-                        objectFit="contain"
-                        cursor="pointer"
-                    />
-                ) : (
-                    <Avatar
-                        borderRadius="full"
-                        width={['4.5rem', '8rem', '12rem']}
-                        height={['4.5rem', '8rem', '12rem']}
-                        cursor="pointer"/>
-                )}
-                <VStack flexBasis='20rem' align='start' spacing={6} justify='center'>
-                    <Stack direction='row' spacing={[2,4,4]} align='center'>
-                        <Box fontSize={['1rem','1.2rem','1.2rem']} fontWeight='bold' >test_id</Box>
-                        <Button variant='primary-basic' size={['xs','sm','sm']} >프로필 편집</Button>
-                        <Button variant='trans-basic' size={['sm','md','md']} color='tertiary' leftIcon={<FiLogOut />} fontWeight='bold' p='0'>
-                            로그아웃
-                        </Button>
-                    </Stack>
-                    <Flex align='center' justifyContent='space-between'>
-                        <Box color='gray_dark_4' fontWeight='600' pr='1rem'>
-                            게시물<strong style={{marginLeft:'.25rem'}}>4</strong>
-                        </Box>
-                        <Button variant='trans-basic'>
-                            팔로워<strong style={{marginLeft:'.25rem'}}>4</strong>
-                        </Button>
-                        <Button variant='trans-basic'>
-                            팔로잉<strong style={{marginLeft:'.25rem'}}>4</strong>
-                        </Button>
+        <Flex
+            align='center'
+            justifyContent='space-around'
+            p={isMobile ? '2rem 0' : '3rem 2rem'}
+        >
+            {profileImage ? (
+                <Image
+                    src={profileImage}
+                    alt="User profile image"
+                    width={profileImageWH}
+                    height={profileImageWH}
+                    objectFit="contain"
+                />
+            ) : (
+                <Avatar
+                    borderRadius="full"
+                    width={profileImageWH}
+                    height={profileImageWH}
+                />
+            )}
+            <VStack
+                width={isMobile ? '12rem' : '30rem'}
+                flexBasis={isMobile ? 'auto' : '20rem'}
+                align={isMobile ? 'space-between' : 'start'}
+                spacing={isMobile ? 2 : 6}
+                justify='center'
+            >
+                <Stack direction='row' spacing={isMobile ? 2 : 4} align='center'>
+                    <Flex align='center' justifyContent='center'>
+                        <Text as='b' fontSize={isMobile ? '1rem' : '1.2rem'} height='1.2rem'>
+                            test_id
+                        </Text>
+                        {
+                            isMobile ?
+                                <GeneralDropDown menuItems={['프로필 편집', '회원 탈퇴']}
+                                                 onClickMenuItemHandler={onClickMobileMenuItemHandler}/>
+                                :
+                                <Button variant='primary-basic' size={isMobile ? 'xs' : 'sm'}>
+                                    프로필 편집
+                                </Button>
+                        }
                     </Flex>
-                    <Button variant='tertiary-basic' size='sm'>회원 탈퇴</Button>
-                </VStack>
-            </Flex>
+                    <Button
+                        variant='trans-basic'
+                        color='tertiary'
+                        size={isMobile ? 'sm' : 'md'}
+                        fontWeight='bold'
+                        alignItems='center'
+                    >
+                        <FiLogOut size='1rem'/>
+                        <Text ml='.25rem'>로그아웃</Text>
+                    </Button>
+                </Stack>
+                <HStack fontSize={isMobile ? '.875rem' : '1rem'} lineHeight='1.2rem' gap={isMobile ? 4 : 8}>
+                    <HStack color='gray_dark_4' fontWeight='inherit' gap={1}>
+                        <span>게시물</span>
+                        <strong>4</strong>
+                    </HStack>
+                    <HStack as={Button} variant='trans-basic' fontSize='inherit' fontWeight='inherit' gap={1}>
+                        <span>팔로워</span>
+                        <strong>4</strong>
+                    </HStack>
+                    <HStack as={Button} variant='trans-basic' fontSize='inherit' fontWeight='inherit' gap={1}>
+                        <span>팔로잉</span>
+                        <strong>4</strong>
+                    </HStack>
+                </HStack>
+
+                {!isMobile && <Button variant='tertiary-basic' size='sm'>회원 탈퇴</Button>}
+            </VStack>
+        </Flex>
     );
 }
 

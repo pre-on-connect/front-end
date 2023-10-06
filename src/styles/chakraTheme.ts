@@ -84,6 +84,7 @@ export const chakraTheme = extendTheme({
                 'trans-basic': (props: StyleFunctionProps) => ({
                     bgColor: 'transparent',
                     color: props.color || 'gray_dark_4',
+                    p:'0',
                     _hover: {
                         bgColor: 'transparent',
                         color: props.color || 'gray_dark_4'
@@ -92,6 +93,7 @@ export const chakraTheme = extendTheme({
                 'trans-hover': {
                     bgColor: 'transparent',
                     color: (props: StyleFunctionProps) => props.color,
+                    p:'0',
                     _hover: (props: StyleFunctionProps) => ({
                         bgColor: 'transparent',
                         color: props.hoverColor,
