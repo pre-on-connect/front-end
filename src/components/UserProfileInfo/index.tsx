@@ -30,8 +30,7 @@ function UserProfileInfo() {
                 height={isMobile ? '8rem':'16rem'}
                 justifyContent='space-around'
                 align='center'
-                width={['100%','100%','80%']}
-
+                width='80%'
             >
                 {profileImage ? (
                     <Image
@@ -55,7 +54,7 @@ function UserProfileInfo() {
                     spacing={isMobile ? 2 : 6}
                     justify='center'
                 >
-                    <Stack direction='row' spacing={isMobile ? 2 : 4} align='center'>
+                    <Stack direction='row' spacing={isMobile ? 2 : 4} align='center' justify='center'>
                         <Flex align='center' justify='space-between' width={isMobile ? '5rem':'9rem'}>
                             <Text as='b' height='1.2rem'>
                                 test_id
