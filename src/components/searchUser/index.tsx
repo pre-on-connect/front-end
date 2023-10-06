@@ -53,15 +53,15 @@ const SearchUser = () => {
           <Box color="#777" fontSize="20px" fontWeight="semibold" mb="30px">
             회원님을 위한 추천
           </Box>
-          <UserProfileItem nickName="abcd" isRecommend />
-          <UserProfileItem nickName="abcd" isRecommend />
-          <UserProfileItem nickName="abcd" isRecommend />
+          <UserProfileItem nickName="abcd" isFollowing={false} />
+          <UserProfileItem nickName="abcd" isFollowing={false} />
+          <UserProfileItem nickName="abcd" isFollowing={false} />
         </Box>
       ) : (
         <Box mt="20px" width={{ base: "300px", sm: "400px" }} m="15px auto">
-          <UserProfileItem nickName="abcd" />
-          <UserProfileItem nickName="abcd" />
-          <UserProfileItem nickName="abcd" />
+          <UserProfileItem nickName="abcd" showFollowStatus={false} />
+          <UserProfileItem nickName="abcd" showFollowStatus={false} />
+          <UserProfileItem nickName="abcd" showFollowStatus={false} />
         </Box>
       )}
     </Box>

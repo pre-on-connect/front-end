@@ -9,9 +9,9 @@ export const RecommendUser = () => {
         회원님을 위한 추천
       </Box>
       <Box>
-        <UserProfileItem nickName="사람 1" isRecommend />
-        <UserProfileItem nickName="사람 2" isRecommend />
-        <UserProfileItem nickName="사람 3" isRecommend />
+        <UserProfileItem nickName="사람 1" isFollowing={false} />
+        <UserProfileItem nickName="사람 2" isFollowing={false} />
+        <UserProfileItem nickName="사람 3" isFollowing={false} />
       </Box>
     </Box>
   );
