@@ -5,6 +5,7 @@ import { CustomModal } from "@/components/ui";
 import { useResetRecoilState } from "recoil";
 import { articleImagesAtom, articleModalTypeAtom } from "@/store";
 import ArticleEditorModal from "@/components/ArticleEditorModal";
+import {useModal} from "@/hooks/useModal";
 
 const ButtonMenuItem = [
   {
@@ -40,11 +41,12 @@ const ButtonMenuItem = [
 ];
 
 export const BottomMenu = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const {isModalOpen, openModal, closeModal} = useModal();
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
+  // const handleModalOpen = () => {
+  //   setIsModalOpen(true);
+  // };
 
   const resetArticleImages = useResetRecoilState(articleImagesAtom);
   const resetArticleModalType = useResetRecoilState(articleModalTypeAtom);
@@ -60,7 +62,7 @@ export const BottomMenu = () => {
 
   return (
     <>
-      <CustomModal isOpen={isModalOpen} setOpen={setIsModalOpen}>
+      <CustomModal isOpen={isModalOpen} handleModalClose={()=> closeModal()}>
         <ArticleEditorModal />
       </CustomModal>
       <Flex
@@ -79,7 +81,7 @@ export const BottomMenu = () => {
         {ButtonMenuItem.map((menu) => (
           <Link href={menu.url ? menu.url : "#"} key={menu.id}>
             {menu.name === "만들기" ? (
-              <Image src={menu.icon} alt="" width={{ base: "25px", sm: "auto" }} onClick={() => handleModalOpen()} />
+              <Image src={menu.icon} alt="" width={{ base: "25px", sm: "auto" }} onClick={() => openModal()} />
             ) : (
               <Image src={menu.icon} alt="" width={{ base: "25px", sm: "auto" }} />
             )}

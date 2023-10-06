@@ -7,6 +7,7 @@ import { MenuItem, CustomModal } from "@/components/ui";
 import ArticleEditorModal from "@/components/ArticleEditorModal";
 import { useResetRecoilState } from "recoil";
 import { articleImagesAtom, articleModalTypeAtom } from "@/store";
+import {useModal} from "@/hooks/useModal";
 
 const SideMenuItem = [
   {
@@ -44,11 +45,12 @@ const SideMenuItem = [
 export const SideMenu = () => {
   const pathname = usePathname();
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const {isModalOpen, openModal, closeModal} = useModal();
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
+  // const handleModalOpen = () => {
+  //   setIsModalOpen(true);
+  // };
 
   const resetArticleImages = useResetRecoilState(articleImagesAtom);
   const resetArticleModalType = useResetRecoilState(articleModalTypeAtom);
@@ -64,7 +66,7 @@ export const SideMenu = () => {
 
   return (
     <Box width="100%" height="100vh" p="30px" borderRight="1px solid #CDCCCC">
-      <CustomModal isOpen={isModalOpen} setOpen={setIsModalOpen}>
+      <CustomModal isOpen={isModalOpen} handleModalClose={() => closeModal()}>
         <ArticleEditorModal />
       </CustomModal>
       <Box color="primary" fontSize="32px" fontWeight="semibold" mb="100px">
@@ -83,7 +85,7 @@ export const SideMenu = () => {
             backgroundColor={pathname === menu.url ? "primary" : ""}
           >
             {menu.name === "만들기" ? (
-              <MenuItem title={menu.name} icon={menu.icon} url={menu.url} onClick={() => handleModalOpen()} />
+              <MenuItem title={menu.name} icon={menu.icon} url={menu.url} onClick={() => openModal()} />
             ) : (
               <MenuItem title={menu.name} icon={menu.icon} url={menu.url} />
             )}

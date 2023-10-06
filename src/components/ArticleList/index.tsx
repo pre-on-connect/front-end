@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import { Box } from "@chakra-ui/react";
 import { ArticleCard, CustomModal } from "../ui";
 import ArticleDetail from "../ArticleDetail";
+import {useModal} from "@/hooks/useModal";
 
 const ArticleList = () => {
   // 나중에 실제 게시글 리스트 props로 넘겨주기
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+    const {isModalOpen, openModal, closeModal} = useModal();
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
+  // const handleModalOpen = () => {
+  //   setIsModalOpen(true);
+  // };
 
   return (
     <Box
@@ -25,12 +27,12 @@ const ArticleList = () => {
       }}
       pb={{ base: "10px", sm: "50px" }}
     >
-      <CustomModal isOpen={isModalOpen} setOpen={setIsModalOpen}>
+      <CustomModal isOpen={isModalOpen} handleModalClose={() => closeModal()}>
         <ArticleDetail />
       </CustomModal>
-      <ArticleCard onClick={() => handleModalOpen()} />
-      <ArticleCard onClick={() => handleModalOpen()} />
-      <ArticleCard onClick={() => handleModalOpen()} />
+      <ArticleCard onClick={() => openModal()} />
+      <ArticleCard onClick={() => openModal()} />
+      <ArticleCard onClick={() => openModal()} />
     </Box>
   );
 };

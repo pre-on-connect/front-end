@@ -7,6 +7,7 @@ import { articleModalTypeAtom } from "@/store";
 import { useSetRecoilState } from "recoil";
 import { CustomModal } from "..";
 import ArticleEditorModal from "@/components/ArticleEditorModal";
+import {useModal} from "@/hooks/useModal";
 
 interface DropdownProps {
   menuItems: string[];
@@ -22,15 +23,16 @@ export const Dropdown = ({ menuItems, icon }: DropdownProps) => {
     }
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const {isModalOpen, openModal, closeModal} = useModal();
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
+  // const handleModalOpen = () => {
+  //   setIsModalOpen(true);
+  // };
 
   return (
     <>
-      <CustomModal isOpen={isModalOpen} setOpen={setIsModalOpen}>
+      <CustomModal isOpen={isModalOpen} handleModalClose={() => closeModal()}>
         <ArticleEditorModal />
       </CustomModal>
       <Menu>
@@ -48,7 +50,7 @@ export const Dropdown = ({ menuItems, icon }: DropdownProps) => {
               key={index}
               onClick={() => {
                 handleArticleModalType(item);
-                handleModalOpen();
+                openModal();
               }}
             >
               {item}
