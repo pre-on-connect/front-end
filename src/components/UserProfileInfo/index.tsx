@@ -30,7 +30,7 @@ function UserProfileInfo() {
                 height={isMobile ? '8rem':'16rem'}
                 justifyContent='space-around'
                 align='center'
-                width={['100%','100%','100%','80%']}
+                width={['100%','100%','80%']}
 
             >
                 {profileImage ? (
