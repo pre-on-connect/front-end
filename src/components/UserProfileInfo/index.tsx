@@ -1,6 +1,6 @@
 'use client';
-import React, {MouseEventHandler, MouseEvent} from 'react';
-import {Avatar, Box, Button, Flex, Image, Stack, VStack, Text, HStack} from "@chakra-ui/react";
+import React from 'react';
+import {Avatar, Button, Flex, HStack, Image, Stack, Text, VStack} from "@chakra-ui/react";
 import {FiLogOut} from "@react-icons/all-files/fi/FiLogOut";
 import {useMediaQuery} from "@mantine/hooks";
 import GeneralDropDown from "@/components/ui/GeneralDropdown";
