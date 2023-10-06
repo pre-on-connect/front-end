@@ -11,10 +11,10 @@ interface UserPageProps {
 function UserPage({params:{userid}}:UserPageProps) {
     console.log("userid: ",userid);
     return (
-        <VStack gap={[4,16,16]} px={['0','2rem','2rem']}>
+        <Flex flexDirection='column' px={['0','2rem','2rem']}>
             <UserProfileInfo/>
             <UserArticle userid={userid}/>
-        </VStack>
+        </Flex>
 
     );
 }
