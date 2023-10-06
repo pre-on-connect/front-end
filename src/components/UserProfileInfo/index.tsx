@@ -29,7 +29,7 @@ function UserProfileInfo() {
             <Flex
                 align='center'
                 justifyContent='space-around'
-                height={isMobile ? '8rem':'auto'}
+                height={isMobile ? '8rem':'16rem'}
             >
                 {profileImage ? (
                     <Image
