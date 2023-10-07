@@ -49,7 +49,7 @@ export const CustomModal = ({isOpen, handleModalClose, children, size = 'lg'}: C
     const modalSize = customModalSize[size];
 
     return (
-        <Modal onClose={handleModalClose} isOpen={isOpen} isCentered size={modalSize.wrapper}>
+        <Modal onClose={handleModalClose} isOpen={isOpen} isCentered size={modalSize.wrapper} >
             <ModalOverlay/>
             <ModalContent maxWidth={modalSize.contentW} height={modalSize.contentH}>
                 {isMobile ? (

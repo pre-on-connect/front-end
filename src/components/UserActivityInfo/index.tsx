@@ -65,10 +65,10 @@ function UserActivityInfo({isMobile}: UserActivityInfoProps) {
                     <strong>4</strong>
                 </Stack>
             </HStack>
-            <CustomModal isOpen={isFollowerOpen} handleModalClose={() => closeFollowerModal()}>
+            <CustomModal isOpen={isFollowerOpen} handleModalClose={() => closeFollowerModal()} size='sm'>
                 <Followers/>
             </CustomModal>
-            <CustomModal isOpen={isFollowingOpen} handleModalClose={() => closeFollowingModal()}>
+            <CustomModal isOpen={isFollowingOpen} handleModalClose={() => closeFollowingModal()} size='sm'>
                 <Followings/>
             </CustomModal>
         </>
