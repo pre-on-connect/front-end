@@ -8,7 +8,7 @@ interface SearchBarProps {
 
 const customSearchBarSize = {
     'lg': {base: "300px", sm: "400px"},
-    'md': {base: "300px", sm: "360px", md:'300px'}
+    'md': {base: "300px", sm: "360px", md:'280px'}
 }
 
 export const SearchBar = ({placeholder, size = 'lg'}: SearchBarProps) => {
