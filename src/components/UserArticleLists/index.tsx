@@ -4,7 +4,7 @@ import UserArticleCard from "@/components/ui/UserArticleCard";
 
 function UserArticleLists() {
     return (
-        <Grid templateColumns='repeat(3, 1fr)' gap={1}>
+        <Grid width='100%' templateColumns='repeat(auto-fill, minmax(7rem, 17rem))' gap={1} justifyContent='center' alignItems='center'>
             <UserArticleCard/>
             <UserArticleCard/>
             <UserArticleCard/>
