@@ -1,13 +1,17 @@
 'use client';
 import React from 'react';
-import {Avatar, Button, Flex, HStack, Image, Stack, Text, VStack} from "@chakra-ui/react";
+import {Avatar, Button, Flex, Image, Stack, Text, VStack} from "@chakra-ui/react";
 import {FiLogOut} from "@react-icons/all-files/fi/FiLogOut";
 import {useMediaQuery} from "@mantine/hooks";
 import GeneralDropDown from "@/components/ui/GeneralDropdown";
 import {CustomMouseEvent} from "@/utils/types";
-import UserActivityInfo from "@/components/UserActivityInfo";
+import UserActivityInfo from "@/components/user/UserActivityInfo";
+import {usePathname} from "next/navigation";
+import {Link} from "@chakra-ui/next-js";
 
 function UserProfileInfo() {
+    const pathname = usePathname();
+
     const isMobile = useMediaQuery("(max-width: 767px)");
 
     // todo - 사용자정보 조회 코드 추가
@@ -64,7 +68,7 @@ function UserProfileInfo() {
                                     <GeneralDropDown menuItems={['프로필 편집', '회원 탈퇴']}
                                                      onClickMenuItemHandler={onClickMobileMenuItemHandler}/>
                                     :
-                                    <Button variant='primary-basic' size={isMobile ? 'xs' : 'sm'}>
+                                    <Button as={Link} href={`${pathname}/edit`} variant='primary-basic' size={isMobile ? 'xs' : 'sm'}>
                                         프로필 편집
                                     </Button>
                             }

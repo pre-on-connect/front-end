@@ -2,8 +2,8 @@
 
 import React, {useState} from 'react';
 import {Center, TabPanel, TabPanels, Tabs, VStack} from "@chakra-ui/react";
-import UserArticleNav from "@/components/UserArticleNav";
-import UserArticleLists from "@/components/UserArticleLists";
+import UserArticleNav from "@/components/user/UserArticleNav";
+import UserArticleLists from "@/components/user/UserArticleLists";
 
 interface UserArticleProps {
     userid: string;

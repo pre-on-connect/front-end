@@ -3,8 +3,8 @@ import React from 'react';
 import {Button, HStack, Stack, StackDirection} from "@chakra-ui/react";
 import {CustomModal} from "@/components/ui";
 import {useModal} from "@/hooks/useModal";
-import Followers from "@/components/Followers";
-import Followings from "@/components/Followings";
+import Followers from "@/components/user/Followers";
+import Followings from "@/components/user/Followings";
 
 interface UserActivityInfoProps {
     isMobile: boolean | undefined;

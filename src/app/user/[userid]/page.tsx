@@ -1,7 +1,7 @@
 import React from 'react';
 import {Flex, VStack} from "@chakra-ui/react";
-import UserProfileInfo from "@/components/UserProfileInfo";
-import UserArticle from "@/components/UserArticle";
+import UserProfileInfo from "@/components/user/UserProfileInfo";
+import UserArticle from "@/components/user/UserArticle";
 
 interface UserPageProps {
     params:{

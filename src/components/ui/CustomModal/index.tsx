@@ -36,7 +36,7 @@ const customModalSize = {
             lg: "25rem"
         },
         contentH:{
-            md:'30rem'
+            md:'auto'
         }
     }
 }
